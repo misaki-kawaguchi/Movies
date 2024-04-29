@@ -13,9 +13,7 @@ struct MovieListScreen: View {
     @State private var isAddMoviePresented: Bool = false
     
     var body: some View {
-        List(movies) { movie in
-            Text(movie.title)
-        }
+        MovieListView(movies: movies)
         .navigationTitle("Add Movie")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
