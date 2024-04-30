@@ -17,6 +17,7 @@
 		1438F6E12BDF939D00A902D4 /* MovieListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438F6E02BDF939D00A902D4 /* MovieListScreen.swift */; };
 		1438F6E42BDFA3A600A902D4 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438F6E32BDFA3A600A902D4 /* MovieListView.swift */; };
 		1438F6E62BDFA94000A902D4 /* MovieDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438F6E52BDFA94000A902D4 /* MovieDetailScreen.swift */; };
+		14D4EBA82BE1B34200627DBD /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4EBA72BE1B34200627DBD /* Review.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		1438F6E02BDF939D00A902D4 /* MovieListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListScreen.swift; sourceTree = "<group>"; };
 		1438F6E32BDFA3A600A902D4 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		1438F6E52BDFA94000A902D4 /* MovieDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailScreen.swift; sourceTree = "<group>"; };
+		14D4EBA72BE1B34200627DBD /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				1438F6D82BDF301B00A902D4 /* Movie.swift */,
+				14D4EBA72BE1B34200627DBD /* Review.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			files = (
 				1438F6DF2BDF322600A902D4 /* String+Extensions.swift in Sources */,
 				1438F6E42BDFA3A600A902D4 /* MovieListView.swift in Sources */,
+				14D4EBA82BE1B34200627DBD /* Review.swift in Sources */,
 				1438F6DC2BDF313B00A902D4 /* AddMovieScreen.swift in Sources */,
 				1438F6E12BDF939D00A902D4 /* MovieListScreen.swift in Sources */,
 				1438F6CC2BDF2E7000A902D4 /* ContentView.swift in Sources */,
