@@ -6,9 +6,23 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ReviewListView: View {
     let reviews: [Review]
+    @Environment(\.modelContext) private var context
+    
+    private func deleteReview(IndexSet: IndexSet) {
+        IndexSet.forEach { index in
+            let review = reviews[index]
+            context.delete(review)
+            do {
+                try context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
     
     var body: some View {
         List {
@@ -18,10 +32,12 @@ struct ReviewListView: View {
                     Text(review.body)
                 }
             }
+            .onDelete(perform: deleteReview)
         }
     }
 }
 
 #Preview {
     ReviewListView(reviews: [])
+        .modelContainer(for: [Review.self, Movie.self])
 }
