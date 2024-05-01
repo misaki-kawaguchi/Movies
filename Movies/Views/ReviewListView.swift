@@ -9,14 +9,15 @@ import SwiftUI
 import SwiftData
 
 struct ReviewListView: View {
-    let reviews: [Review]
+    let movie: Movie
     @Environment(\.modelContext) private var context
     
     private func deleteReview(IndexSet: IndexSet) {
         IndexSet.forEach { index in
-            let review = reviews[index]
+            let review = movie.reviews[index]
             context.delete(review)
             do {
+                movie.reviews.remove(at: index)
                 try context.save()
             } catch {
                 print(error.localizedDescription)
@@ -26,7 +27,7 @@ struct ReviewListView: View {
     
     var body: some View {
         List {
-            ForEach(reviews) { review in
+            ForEach(movie.reviews) { review in
                 VStack {
                     Text(review.subject)
                     Text(review.body)
@@ -37,7 +38,7 @@ struct ReviewListView: View {
     }
 }
 
-#Preview {
-    ReviewListView(reviews: [])
-        .modelContainer(for: [Review.self, Movie.self])
-}
+//#Preview {
+//    ReviewListView(reviews: [])
+//        .modelContainer(for: [Review.self, Movie.self])
+//}
