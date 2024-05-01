@@ -14,7 +14,6 @@ struct MovieListScreen: View {
     
     var body: some View {
         MovieListView(movies: movies)
-        .navigationTitle("Add Movie")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button("Add Movie") {

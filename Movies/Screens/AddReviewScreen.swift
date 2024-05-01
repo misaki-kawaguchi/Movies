@@ -1,30 +1,32 @@
 //
-//  AddMovieScreen.swift
+//  AddReviewScreen.swift
 //  Movies
 //
-//  Created by 川口美咲 on 2024/04/29.
+//  Created by 川口美咲 on 2024/05/01.
 //
 
 import SwiftUI
 import SwiftData
 
-struct AddMovieScreen: View {
+struct AddReviewScreen: View {
+    let movie: Movie
+    
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
     
-    @State private var title: String = ""
-    @State private var year: Int?
+    @State private var subject: String = ""
+    @State private var description: String = ""
     
     private var isFormValid: Bool {
-        !title.isEmptyOrWhiteSpace && year != nil
+        !subject.isEmptyOrWhiteSpace && !description.isEmptyOrWhiteSpace
     }
     
     var body: some View {
         Form {
-            TextField("Title", text: $title)
-            TextField("Year", value: $year, format: .number)
+            TextField("Subject", text: $subject)
+            TextField("Body", text: $description)
         }
-        .navigationTitle("Add Movie")
+        .navigationTitle("Add Review")
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button("Close") {
@@ -34,13 +36,13 @@ struct AddMovieScreen: View {
             
             ToolbarItem(placement: .topBarTrailing) {
                 Button("Save") {
-                    guard  let year = year else { return }
-                    let movie = Movie(title: title, year: year)
-                    
-                    context.insert(movie)
+                    let review = Review(subject: subject, body: description)
+                    review.movie = movie
+                    context.insert(review)
                     
                     do {
                         try context.save()
+                        movie.reviews?.append(review)
                     } catch {
                         print(error.localizedDescription)
                     }
@@ -53,9 +55,6 @@ struct AddMovieScreen: View {
     }
 }
 
-#Preview {
-    NavigationStack {
-        AddMovieScreen()
-            .modelContainer(for: [Movie.self])
-    }
-}
+//#Preview {
+//    AddReviewScreen()
+//}
