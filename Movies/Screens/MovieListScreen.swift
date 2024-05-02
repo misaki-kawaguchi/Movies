@@ -12,6 +12,8 @@ struct MovieListScreen: View {
     @Environment(\.modelContext) private var context
     
     @Query (sort: \Movie.title, order: .forward) private var movies: [Movie]
+    @Query(sort: \Actor.name, order: .forward) private var actors: [Actor]
+    
     @State private var isAddMoviePresented: Bool = false
     @State private var isActorPresented: Bool = false
     @State private var acrorName: String = ""
@@ -22,7 +24,17 @@ struct MovieListScreen: View {
     }
     
     var body: some View {
-        MovieListView(movies: movies)
+        VStack(alignment: .leading) {
+            Text("Movies")
+                .font(.largeTitle)
+            MovieListView(movies: movies)
+            
+            Text("Actors")
+                .font(.largeTitle)
+            
+            ActorListView(actors: actors)
+        }
+        .padding()
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button("Add Actor") {
