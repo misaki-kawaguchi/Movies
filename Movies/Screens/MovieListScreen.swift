@@ -9,9 +9,17 @@ import SwiftUI
 import SwiftData
 
 struct MovieListScreen: View {
+    @Environment(\.modelContext) private var context
+    
     @Query (sort: \Movie.title, order: .forward) private var movies: [Movie]
     @State private var isAddMoviePresented: Bool = false
     @State private var isActorPresented: Bool = false
+    @State private var acrorName: String = ""
+    
+    private func saveActor() {
+        let actor = Actor(name: acrorName)
+        context.insert(actor)
+    }
     
     var body: some View {
         MovieListView(movies: movies)
@@ -37,6 +45,14 @@ struct MovieListScreen: View {
             Text("Add Actor")
                 .font(.largeTitle)
                 .presentationDetents([.fraction(0.25)])
+            TextField("Actor name", text: $acrorName)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+            
+            Button("Save") {
+                isActorPresented = false
+                saveActor()
+            }
         })
     }
 }
@@ -44,6 +60,6 @@ struct MovieListScreen: View {
 #Preview {
     NavigationStack {
         MovieListScreen()
-            .modelContainer(for: [Movie.self])
+            .modelContainer(for: [Movie.self, Review.self, Actor.self])
     }
 }
