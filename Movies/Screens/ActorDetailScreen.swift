@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ActorDetailScreen: View {
+    @Environment(\.modelContext) private var context
+    
     let actor: Actor
     @State private var selectedMovies: Set<Movie> = []
     
@@ -19,6 +21,10 @@ struct ActorDetailScreen: View {
                 }
             
         }
+        .onChange(of: selectedMovies, {
+            actor.movies = Array(selectedMovies)
+            context.insert(actor)
+        })
         .navigationTitle(actor.name)
     }
 }
