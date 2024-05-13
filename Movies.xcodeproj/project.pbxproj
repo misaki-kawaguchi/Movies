@@ -24,8 +24,6 @@
 		1494DC2E2BE30FF100C74C1E /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1494DC2D2BE30FF100C74C1E /* Actor.swift */; };
 		1494DC302BE31E0B00C74C1E /* ActorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1494DC2F2BE31E0B00C74C1E /* ActorListView.swift */; };
 		14A524732BEE1E81002E8452 /* FilterSelectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A524722BEE1E81002E8452 /* FilterSelectionScreen.swift */; };
-		14A524762BF0717E002E8452 /* MovieSchemaVesions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A524752BF0717E002E8452 /* MovieSchemaVesions.swift */; };
-		14A524782BF07671002E8452 /* MoviesMigrationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A524772BF07671002E8452 /* MoviesMigrationPlan.swift */; };
 		14D4EBA82BE1B34200627DBD /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4EBA72BE1B34200627DBD /* Review.swift */; };
 		14D4EBAA2BE1BAE800627DBD /* AddReviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4EBA92BE1BAE800627DBD /* AddReviewScreen.swift */; };
 		14D4EBAC2BE1C79900627DBD /* ReviewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4EBAB2BE1C79900627DBD /* ReviewListView.swift */; };
@@ -50,8 +48,6 @@
 		1494DC2D2BE30FF100C74C1E /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 		1494DC2F2BE31E0B00C74C1E /* ActorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListView.swift; sourceTree = "<group>"; };
 		14A524722BEE1E81002E8452 /* FilterSelectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectionScreen.swift; sourceTree = "<group>"; };
-		14A524752BF0717E002E8452 /* MovieSchemaVesions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSchemaVesions.swift; sourceTree = "<group>"; };
-		14A524772BF07671002E8452 /* MoviesMigrationPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesMigrationPlan.swift; sourceTree = "<group>"; };
 		14D4EBA72BE1B34200627DBD /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		14D4EBA92BE1BAE800627DBD /* AddReviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewScreen.swift; sourceTree = "<group>"; };
 		14D4EBAB2BE1C79900627DBD /* ReviewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListView.swift; sourceTree = "<group>"; };
@@ -87,7 +83,6 @@
 		1438F6C82BDF2E7000A902D4 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				14A524742BF07138002E8452 /* Schema Versions */,
 				1438F6E22BDFA37400A902D4 /* Views */,
 				1438F6DD2BDF31F200A902D4 /* Extensions */,
 				1438F6DA2BDF311E00A902D4 /* Screens */,
@@ -150,15 +145,6 @@
 				1476E94F2BE491B500FBC18D /* MovieSelectionView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		14A524742BF07138002E8452 /* Schema Versions */ = {
-			isa = PBXGroup;
-			children = (
-				14A524752BF0717E002E8452 /* MovieSchemaVesions.swift */,
-				14A524772BF07671002E8452 /* MoviesMigrationPlan.swift */,
-			);
-			path = "Schema Versions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +220,6 @@
 				1438F6DF2BDF322600A902D4 /* String+Extensions.swift in Sources */,
 				1494DC302BE31E0B00C74C1E /* ActorListView.swift in Sources */,
 				14A524732BEE1E81002E8452 /* FilterSelectionScreen.swift in Sources */,
-				14A524762BF0717E002E8452 /* MovieSchemaVesions.swift in Sources */,
 				1438F6E42BDFA3A600A902D4 /* MovieListView.swift in Sources */,
 				1476E9502BE491B500FBC18D /* MovieSelectionView.swift in Sources */,
 				14D4EBAC2BE1C79900627DBD /* ReviewListView.swift in Sources */,
@@ -247,7 +232,6 @@
 				1438F6E62BDFA94000A902D4 /* MovieDetailScreen.swift in Sources */,
 				1438F6CA2BDF2E7000A902D4 /* MoviesApp.swift in Sources */,
 				1438F6D92BDF301B00A902D4 /* Movie.swift in Sources */,
-				14A524782BF07671002E8452 /* MoviesMigrationPlan.swift in Sources */,
 				14D4EBAA2BE1BAE800627DBD /* AddReviewScreen.swift in Sources */,
 				1476E94E2BE48FBB00FBC18D /* ActorDetailScreen.swift in Sources */,
 				1476E94C2BE48AC900FBC18D /* ActorCellView.swift in Sources */,
