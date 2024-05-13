@@ -18,6 +18,14 @@ enum Sheets: Identifiable {
     }
 }
 
+struct FilterSelectionConfig {
+    var movieTitle: String = ""
+    var numberOfReviews: Int?
+    var numberOfActors: Int?
+    var genre: Genre = .action
+    var filter: FilterOption = .none
+}
+
 struct MovieListScreen: View {
     @Environment(\.modelContext) private var context
     
@@ -27,6 +35,7 @@ struct MovieListScreen: View {
     @State private var acrorName: String = ""
     @State private var activeSheet: Sheets?
     
+    @State private var filterSelectionConfig = FilterSelectionConfig()
     @State private var filterOption: FilterOption = .none
     
     private func saveActor() {
@@ -40,11 +49,17 @@ struct MovieListScreen: View {
                 Text("Movies")
                     .font(.largeTitle)
                 Spacer()
+                
                 Button("Filter") {
                     activeSheet = .showFilter
                 }
             }
-            MovieListView(filterOption: filterOption)
+            
+            Button("Clear Filters") {
+                filterSelectionConfig.filter = .none
+            }
+            
+            MovieListView(filterOption: filterSelectionConfig.filter)
             
             Text("Actors")
                 .font(.largeTitle)
@@ -84,7 +99,7 @@ struct MovieListScreen: View {
                     self.activeSheet = nil
                 }
             case .showFilter:
-                FilterSelectionScreen(filterOption: $filterOption)
+                FilterSelectionScreen(filterSelectionConfig: $filterSelectionConfig)
             }
         })
     }
