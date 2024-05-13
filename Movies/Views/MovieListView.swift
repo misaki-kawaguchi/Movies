@@ -22,6 +22,8 @@ struct MovieListView: View {
             _movies = Query(filter: #Predicate {$0.reviews.count >= numberOfReviews })
         case .actorsCount(let numberOfActors):
             _movies = Query(filter: #Predicate {$0.actors.count >= numberOfActors })
+        case .genre(let genre):
+            _movies = Query(filter: #Predicate { $0.genre == genre })
         case .none:
             _movies = Query()
         }
