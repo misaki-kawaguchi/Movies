@@ -49,10 +49,16 @@ struct MovieListScreen: View {
                 Text("Movies")
                     .font(.largeTitle)
                 Spacer()
+                
                 Button("Filter") {
                     activeSheet = .showFilter
                 }
             }
+            
+            Button("Clear Filters") {
+                filterSelectionConfig.filter = .none
+            }
+            
             MovieListView(filterOption: filterSelectionConfig.filter)
             
             Text("Actors")
