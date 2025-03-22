@@ -45,7 +45,7 @@ struct MovieDetailScreen: View {
                 
                 if movie.reviews.isEmpty {
                     ContentUnavailableView {
-                        Text("No reviewws")
+                        Text("No reviews")
                     }
                 } else {
                     ReviewListView(movie: movie)
