@@ -15,8 +15,8 @@ struct AddReviewScreen: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
     
-    @State private var subject: String
-    @State private var description: String
+    @State private var subject: String = ""
+    @State private var description: String = ""
     
     private var isFormValid: Bool {
         !subject.isEmpryOrWhiteSpace && !description.isEmpryOrWhiteSpace
@@ -34,7 +34,7 @@ struct AddReviewScreen: View {
                     dismiss()
                 }
             }
-            ToolbarItem(placement: .topBarLeading) {
+            ToolbarItem(placement: .topBarTrailing) {
                 Button("Save") {
                     let review = Review(subject: subject, body: description)
                     review.movie = movie
@@ -57,5 +57,5 @@ struct AddReviewScreen: View {
 
 //#Preview {
 //    AddReviewScreen()
-//    
+//
 //}
