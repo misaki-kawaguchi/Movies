@@ -15,6 +15,7 @@ struct AddMovieScreen: View {
     
     @State private var title: String = ""
     @State private var year: Int?
+    @State private var selectedActors: Set<Actor> = []
     
     private var isFormValid: Bool {
         !title.isEmpryOrWhiteSpace && year != nil
@@ -26,9 +27,12 @@ struct AddMovieScreen: View {
             TextField("Year", value: $year, format: .number)
             
             Section("Select Actors") {
-                ActorSelectionView()
+                ActorSelectionView(selectedActors: $selectedActors)
             }
         }
+        .onChange(of: selectedActors, {
+            print(selectedActors.count)
+        })
         .navigationTitle("Add Movie")
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
