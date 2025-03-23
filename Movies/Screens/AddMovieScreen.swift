@@ -24,6 +24,10 @@ struct AddMovieScreen: View {
         Form {
             TextField("Title", text: $title)
             TextField("Year", value: $year, format: .number)
+            
+            Section("Select Actors") {
+                ActorSelectionView()
+            }
         }
         .navigationTitle("Add Movie")
         .toolbar {
