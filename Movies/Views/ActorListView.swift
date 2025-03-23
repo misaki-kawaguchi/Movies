@@ -13,7 +13,7 @@ struct ActorListView: View {
     
     var body: some View {
         List(actors) { actor in
-            Text(actor.name)
+            ActorCellView(actor: actor)
         }
     }
 }
