@@ -18,7 +18,7 @@ struct AddMovieScreen: View {
     @State private var selectedActors: Set<Actor> = []
     
     private var isFormValid: Bool {
-        !title.isEmpryOrWhiteSpace && year != nil
+        !title.isEmpryOrWhiteSpace && year != nil && !selectedActors.isEmpty
     }
     
     var body: some View {
@@ -46,6 +46,13 @@ struct AddMovieScreen: View {
                     guard let year = year else { return }
                     
                     let movie = Movie(title: title, year: year)
+                    movie.actors = Array(selectedActors)
+                    
+                    selectedActors.forEach { actor in
+                        actor.movies.append(movie)
+                        context.insert(actor)
+                    }
+                    
                     context.insert(movie)
                     
                     do {
