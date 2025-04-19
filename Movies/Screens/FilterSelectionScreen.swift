@@ -23,7 +23,11 @@ struct FilterSelectionScreen: View {
             Section("Filter by title") {
                 TextField("Movie title", text: $movieTitle)
                 Button("Search") {
-                    filterOption = .title(movieTitle)
+                    if movieTitle.isEmpryOrWhiteSpace {
+                        filterOption = .none
+                    } else {
+                        filterOption = .title(movieTitle)
+                    }
                     dismiss()
                 }
             }
