@@ -45,7 +45,7 @@ struct AddMovieScreen: View {
                 Button("Save") {
                     guard let year = year else { return }
                     
-                    let movie = Movie(title: title, year: year)
+                    let movie = Movie(title: title, year: year, genre: .action)
                     movie.actors = Array(selectedActors)
                     
                     selectedActors.forEach { actor in
@@ -72,6 +72,6 @@ struct AddMovieScreen: View {
 #Preview {
     NavigationStack {
         AddMovieScreen()
-            .modelContainer(for: [Movie.self])
+            .modelContainer(for: [Movie.self, Review.self, Actor.self])
     }
 }

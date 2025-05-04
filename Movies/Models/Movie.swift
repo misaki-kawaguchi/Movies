@@ -12,6 +12,8 @@ import SwiftData
 final class Movie {
     var title: String
     var year: Int
+    var genre: Genre
+    
     var reviewsCount: Int {
         reviews.count
     }
@@ -25,8 +27,9 @@ final class Movie {
     @Relationship(deleteRule: .nullify, inverse: \Actor.movies)
     var actors: [Actor] = []
 
-    init(title: String, year: Int) {
+    init(title: String, year: Int, genre: Genre) {
         self.title = title
         self.year = year
+        self.genre = genre
     }
 }
