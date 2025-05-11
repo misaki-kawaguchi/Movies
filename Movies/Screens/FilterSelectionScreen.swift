@@ -18,52 +18,48 @@ enum FilterOption {
 struct FilterSelectionScreen: View {
     
     @Environment(\.dismiss) private var dismiss
-    @State private var movieTitle: String = ""
-    @State private var numberOfReviews: Int?
-    @State private var numberOfActors: Int?
-    @State private var genre: Genre = .action
-    @Binding var filterOption: FilterOption
+    @Binding var filterSelectionConfig: FilterSelectionConfig
     
     var body: some View {
         Form {
             Section("Filter by title") {
-                TextField("Movie title", text: $movieTitle)
+                TextField("Movie title", text: $filterSelectionConfig.movieTitle)
                 Button("Search") {
-                    if movieTitle.isEmpryOrWhiteSpace {
-                        filterOption = .none
+                    if filterSelectionConfig.movieTitle.isEmpryOrWhiteSpace {
+                        filterSelectionConfig.filter = .none
                     } else {
-                        filterOption = .title(movieTitle)
+                        filterSelectionConfig.filter = .title(filterSelectionConfig.movieTitle)
                     }
                     dismiss()
                 }
             }
             
             Section("Filter by number of reviews") {
-                TextField("Number of reviews", value: $numberOfReviews, format: .number)
+                TextField("Number of reviews", value: $filterSelectionConfig.numberOfReviews, format: .number)
                     .keyboardType(.numberPad)
                 Button("Search") {
-                    filterOption = .reviewsCount(numberOfReviews ?? 1)
+                    filterSelectionConfig.filter = .reviewsCount(filterSelectionConfig.numberOfReviews ?? 1)
                     dismiss()
                 }
             }
             
             Section("Filter by number of actors") {
-                TextField("Number of actors", value: $numberOfActors, format: .number)
+                TextField("Number of actors", value: $filterSelectionConfig.numberOfActors, format: .number)
                     .keyboardType(.numberPad)
                 Button("Search") {
-                    filterOption = .actorsCount(numberOfActors ?? 1)
+                    filterSelectionConfig.filter = .actorsCount(filterSelectionConfig.numberOfActors ?? 1)
                     dismiss()
                 }
             }
             
             Section("Filter by genre") {
-                Picker("Select a genre", selection: $genre) {
+                Picker("Select a genre", selection: $filterSelectionConfig.genre) {
                     ForEach(Genre.allCases) { genre in
                         Text(genre.title).tag(genre)
                     }
                 }
-                .onChange(of: genre) {
-                    filterOption = .genre(genre)
+                .onChange(of: filterSelectionConfig.genre) {
+                    filterSelectionConfig.filter = .genre(filterSelectionConfig.genre)
                     dismiss()
                 }
             }
@@ -72,5 +68,5 @@ struct FilterSelectionScreen: View {
 }
 
 #Preview {
-    FilterSelectionScreen(filterOption: .constant(.title("Batman")))
+    FilterSelectionScreen(filterSelectionConfig: .constant(FilterSelectionConfig()))
 }
