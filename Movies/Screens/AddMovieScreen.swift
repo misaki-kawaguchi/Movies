@@ -25,7 +25,7 @@ struct AddMovieScreen: View {
     var body: some View {
         Form {
             
-            Picker("sSelect Genre", selection: $genre) {
+            Picker("Select Genre", selection: $genre) {
                 ForEach(Genre.allCases) { genre in
                     Text(genre.title).tag(genre)
                 }
