@@ -53,6 +53,7 @@ struct MovieListView: View {
                     HStack(alignment: .firstTextBaseline) {
                         VStack(alignment: .leading) {
                             Text(movie.title)
+                            Text(movie.genre.title)
                             Text("Number of reviews: \(movie.reviewsCount)")
                                 .font(.caption)
                             Text("Number of actors: \(movie.actorsCount)")
